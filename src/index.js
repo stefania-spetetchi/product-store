@@ -1,17 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import promise from "redux-promise";
+
+import Header from "./components/header";
+import ProductsIndex from "./components/ProductsIndex";
+import reducers from "./reducers/productsReducer";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const createStoreWithMiddleWare = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={createStoreWithMiddleWare(reducers)}>
+    <BrowserRouter>
+      <Header>
+        <Switch>
+          <Route exact path='/products' component={ProductsIndex} />
+        </Switch>
+      </Header>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
