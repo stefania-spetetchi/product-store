@@ -1,17 +1,9 @@
 import React from 'react';
 import Select from 'react-select';
-import axios from 'axios';
 
-const categoriesOfProducts = [
-  { label: '---All---', value: '' },
-  { label: 'Music', value: 'Music' },
-  { label: 'Sports', value: 'Sports' },
-  { label: 'Beauty', value: 'Beauty' },
-  { label: 'Clothing', value: 'Clothing' },
-  { label: 'Shoes', value: 'Shoes' },
-  { label: 'Jewelery', value: 'Jewelery' },
-  { label: 'Toys', value: 'Toys' },
-  { label: 'Computers', value: 'Computers' }
+const sortType = [
+  { label: 'highest', value: 'highest' },
+  { label: 'lowest', value: 'lowest' }
 ]
 
 const customStyles = {
@@ -36,15 +28,15 @@ const customStyles = {
     return { ...provided, opacity, transition };
   }
 }
-const FilterQuery = (props) => {
+const SortQuery = (props) => {
   return (
-    <div className="filterQuery col-sm-3">
+    <div className="sortQuery col-sm-3">
       <Select
         styles={customStyles}
-        options={categoriesOfProducts}
-        categoryQuery={props.query}
+        options={sortType}
+        priceQuery={props.query}
         onChange={opt => {
-          props.setQuery(opt.value)
+          props.setSortBy(opt.value)
         }}
         theme={(theme) => ({
           ...theme,
@@ -62,4 +54,4 @@ const FilterQuery = (props) => {
   )
 }
 
-export default FilterQuery;
+export default SortQuery;

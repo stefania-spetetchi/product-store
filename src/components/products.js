@@ -8,7 +8,7 @@ const Products = (props) => {
           <br />
           <div class="category text-left">
             Category: <strong>{product.category}</strong></div><div class="price text-right">  Price: ${product.price}</div>
-          <img src={product.image}></img>
+          <img src={product.image} alt="product"></img>
           <div>{product.name}</div>
         </div>
       </div >
