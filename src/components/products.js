@@ -6,8 +6,8 @@ const Products = (props) => {
       <div className="products-layout col-md-4" key={product.id}>
         <div className="product border">
           <br />
-          <div class="category text-left">
-            Category: <strong>{product.category}</strong></div><div class="price text-right">  Price: ${product.price}</div>
+          <div className="category text-left">
+            Category: <strong>{product.category}</strong></div><div className="price text-right">  Price: ${product.price}</div>
           <img src={product.image} alt="product"></img>
           <div>{product.name}</div>
         </div>

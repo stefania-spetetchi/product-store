@@ -1,6 +1,5 @@
 import React from 'react';
 import Select from 'react-select';
-import axios from 'axios';
 
 const categoriesOfProducts = [
   { label: '---All---', value: '' },
